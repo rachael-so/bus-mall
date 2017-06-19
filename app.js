@@ -77,8 +77,10 @@ function displayAll() {
 displayAll();
 
 container.addEventListener('click', handleClick);
+var totalClicks = 0;
 
 function handleClick() {
+  totalClicks += 1;
   for (var i = 0; i < allImages.length; i++) {
     if (allImages[i].name === event.target.id) {
       // console.log(i);
@@ -86,5 +88,8 @@ function handleClick() {
       container.innerHTML = '';
       displayAll();
     }
+  }
+  if (totalClicks >= 25) {
+    container.removeEventListener('click', handleClick);
   }
 }
