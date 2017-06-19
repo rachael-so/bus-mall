@@ -89,6 +89,7 @@ function handleClick() {
   }
   if (totalClicks >= 25) {
     container.removeEventListener('click', handleClick);
+
   } else {
     container.innerHTML = '';
     displayAll();
