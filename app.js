@@ -2,6 +2,7 @@
 
 //global vars
 var allImages =  [];
+var index = [];
 var container = document.getElementById('select');
 
 //object constructor
@@ -42,28 +43,48 @@ function displayImg(index) {
   img1.setAttribute('height', '228');
   img1.setAttribute('id', allImages[index].name);
   container.appendChild(img1);
+
+  allImages[index].shown += 1;
 }
 
-function findImg() {
+function chooseIndex() {
   var i = Math.floor(Math.random() * 20);
-  do {
-    var j = Math.floor(Math.random() * 20);
-    var f = Math.floor(Math.random() * 20);
-  } while (j === i || f === i || j === f);
+  var j = Math.floor(Math.random() * 20);
+  var k = Math.floor(Math.random() * 20);
 
-  displayImg(i);
-  displayImg(j);
-  displayImg(f);
+  do {
+    var i = Math.floor(Math.random() * 20);
+  } while (index.includes(i) || i === j || i === k);
+  do {
+    j = Math.floor(Math.random() * 20);
+  } while(index.includes(j) || j === i || j === k);
+  do {
+    k = Math.floor(Math.random() * 20);
+  } while (index.includes(k) || k === i || k === j);
+
+  index[0] = i;
+  index[1] = j;
+  index[2] = k;
 }
 
-findImg();
+function displayAll() {
+  chooseIndex();
+  displayImg(index[0]);
+  displayImg(index[1]);
+  displayImg(index[2]);
+}
+
+displayAll();
 
 container.addEventListener('click', handleClick);
 
 function handleClick() {
   for (var i = 0; i < allImages.length; i++) {
     if (allImages[i].name === event.target.id) {
-      console.log(event.target.id);
+      // console.log(i);
+      allImages[i].clicked += 1;
+      container.innerHTML = '';
+      displayAll();
     }
   }
 }
