@@ -88,10 +88,21 @@ function handleClick() {
     }
   }
   if (totalClicks >= 25) {
+    showResults();
     container.removeEventListener('click', handleClick);
-
   } else {
     container.innerHTML = '';
     displayAll();
   }
+}
+
+function makeElement(type, content, parent) {
+  var El = document.createElement(type);
+  El.textContent = content;
+  parent.appendChild(El);
+}
+
+function showResults() {
+  var ulEl = document.getElementById(results);
+  ulEl.textContent = 'Your Results';
 }
