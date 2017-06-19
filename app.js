@@ -57,3 +57,13 @@ function findImg() {
 }
 
 findImg();
+
+container.addEventListener('click', handleClick);
+
+function handleClick() {
+  for (var i = 0; i < allImages.length; i++) {
+    if (allImages[i].name === event.target.id) {
+      console.log(event.target.id);
+    }
+  }
+}
