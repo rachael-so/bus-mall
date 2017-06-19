@@ -1,4 +1,4 @@
-#User Stories
+# User Stories
 
 - As a user trying to understand how to participate in the survey, I want a clear explanation of what is expected of me to do.
 
