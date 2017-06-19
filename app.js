@@ -85,11 +85,12 @@ function handleClick() {
     if (allImages[i].name === event.target.id) {
       // console.log(i);
       allImages[i].clicked += 1;
-      container.innerHTML = '';
-      displayAll();
     }
   }
   if (totalClicks >= 25) {
     container.removeEventListener('click', handleClick);
+  } else {
+    container.innerHTML = '';
+    displayAll();
   }
 }
