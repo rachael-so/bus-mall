@@ -1,0 +1,44 @@
+body {
+    min-width: 1200px;
+}
+
+div {
+  width: 1000px;
+}
+
+.line {
+  foat: left;
+  display: inline-block;
+  width: 30%;
+  margin-left: 7%;
+  margin-right: 7%;
+}
+
+.box {
+  height: 10px;
+  background-color: orange;
+  box-shadow: 5px 5px 3px #888888;
+}
+
+h1 {
+  display: inline-block;
+}
+
+p {
+  margin: 50px auto;
+  width: 500px;
+  border: 3px dashed maroon;
+  padding: 10px;
+}
+
+h2 {
+  text-align: center;
+}
+
+#select {
+  text-align: center;
+}
+
+button {
+  padding: 20px;
+}
