@@ -4,6 +4,7 @@
 var allImages =  [];
 var index = [];
 var container = document.getElementById('select');
+var box = document.getElementById('results');
 
 //object constructor
 function Image(name, filepath) {
@@ -11,6 +12,7 @@ function Image(name, filepath) {
   this.filepath = filepath;
   this.shown = 0;
   this.clicked = 0;
+  this.percent = 0;
   allImages.push(this);
 }
 
@@ -45,6 +47,30 @@ function displayImg(index) {
   container.appendChild(img1);
 
   allImages[index].shown += 1;
+}
+
+function displayResults() {
+  var ulEl = document.createElement('ul');
+  ulEl.textContent = 'Your Results (clicked to shown percentage)';
+  container.appendChild(ulEl);
+
+  for (var i = 0; i < allImages.length; i++) {
+    var ilEl = document.createElement('li');
+    ilEl.textContent = allImages[i].name + ': ' + calcPercent(i) + '%';
+    ulEl.appendChild(ilEl);
+  }
+}
+
+function calcPercent(i) {
+  var percent = 0;
+
+  if (allImages[i].shown === 0) {
+    percent = 'N/A';
+  }
+  else {
+    percent = (allImages[i].clicked / allImages[i].shown) * 100;
+  }
+  return percent;
 }
 
 function chooseIndex() {
@@ -89,6 +115,16 @@ function handleClick() {
   }
   if (totalClicks >= 25) {
     container.removeEventListener('click', handleClick);
+    var btEl = document.createElement('BUTTON');
+    btEl.textContent = 'See Results';
+    box.appendChild(btEl);
+
+    box.addEventListener('click', handleResults);
+
+    function handleResults() {
+      displayResults();
+      box.removeEventListener('click', handleResults);
+    }
   } else {
     container.innerHTML = '';
     displayAll();
