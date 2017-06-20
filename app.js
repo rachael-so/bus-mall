@@ -3,6 +3,7 @@
 //global vars
 var allImages =  [];
 var index = [];
+var percentages = [];
 var container = document.getElementById('select');
 var ulEl = document.getElementById('results');
 
@@ -49,27 +50,28 @@ function displayImg(index) {
   allImages[index].shown += 1;
 }
 
-function displayResults() {
-  ulEl.textContent = 'Your Results (clicked to shown percentage)';
-  container.appendChild(ulEl);
-
-  for (var i = 0; i < allImages.length; i++) {
-    var ilEl = document.createElement('li');
-    ilEl.textContent = allImages[i].name + ': ' + calcPercent(i) + '%';
-    ulEl.appendChild(ilEl);
-  }
-}
+// function displayResults() {
+//   ulEl.textContent = 'Your Results (clicked to shown percentage)';
+//   container.appendChild(ulEl);
+//
+//   for (var i = 0; i < allImages.length; i++) {
+//     var ilEl = document.createElement('li');
+//     ilEl.textContent = allImages[i].name + ': ' + calcPercent(i) + '%';
+//     ulEl.appendChild(ilEl);
+//   }
+// }
 
 function calcPercent(i) {
   var percent = 0;
-
-  if (allImages[i].shown === 0) {
-    percent = 'N/A';
+  for (var i = 0; allImages.length; i++) {
+    if (allImages[i].shown === 0) {
+      percent = 'N/A';
+    }
+    else {
+      percent = (allImages[i].clicked / allImages[i].shown) * 100;
+    }
+    percentages.push(percent);
   }
-  else {
-    percent = (allImages[i].clicked / allImages[i].shown) * 100;
-  }
-  return percent;
 }
 
 function chooseIndex() {
@@ -129,3 +131,43 @@ function handleClick() {
     displayAll();
   }
 }
+
+//CHART STUFF
+
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: allImages.name,
+    datasets: [{
+      label: '# of Votes',
+      data: percentages,
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)'
+      ],
+      borderColor: [
+        'rgba(255,99,132,1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)'
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero:true
+        }
+      }]
+    }
+  }
+});
