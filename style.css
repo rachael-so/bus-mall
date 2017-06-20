@@ -4,6 +4,7 @@ body {
 
 div {
   width: 1000px;
+  margin: 0 auto;
 }
 
 .line {
@@ -17,7 +18,7 @@ div {
 .box {
   height: 10px;
   background-color: orange;
-  box-shadow: 5px 5px 3px #888888;
+  box-shadow: 5px 5px #888888;
 }
 
 h1 {
@@ -41,4 +42,14 @@ h2 {
 
 button {
   padding: 20px;
+  font-family: sans-serif;
+  color: orange;
+  background-color: maroon;
+  font-size: 15px;
+  border: none;
+  border-radius: 3px;
+}
+
+ul {
+  text-align: center;
 }
