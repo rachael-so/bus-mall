@@ -27,18 +27,18 @@ var breakfast = new Image('breakfast', 'img/breakfast.jpg');
 var bubblegum = new Image('bugglegum', 'img/bubblegum.jpg');
 var chair = new Image('chair', 'img/chair.jpg');
 var cthulhu = new Image('cthulhu', 'img/cthulhu.jpg');
-var dogDuck = new Image('dogDuck', 'img/dog-duck.jpg');
+var dogDuck = new Image('dog-duck', 'img/dog-duck.jpg');
 var dragon = new Image('dragon', 'img/dragon.jpg');
 var pen = new Image('pen', 'img/pen.jpg');
-var petSweep = new Image('petSweep', 'img/pet-sweep.jpg');
+var petSweep = new Image('pet-sweep', 'img/pet-sweep.jpg');
 var scissors = new Image('scissors', 'img/scissors.jpg');
 var shark = new Image('shark', 'img/shark.jpg');
 var sweep = new Image('sweep', 'img/sweep.png');
 var tauntaun = new Image('tauntaun', 'img/tauntaun.jpg');
 var unicorn = new Image('unicorn', 'img/unicorn.jpg');
 var usb = new Image('usb', 'img/usb.gif');
-var waterCan = new Image('waterCan', 'img/water-can.jpg');
-var wineGlass = new Image('wineGlass', 'img/wine-glass.jpg');
+var waterCan = new Image('water-can', 'img/water-can.jpg');
+var wineGlass = new Image('wine-glass', 'img/wine-glass.jpg');
 
 function displayImg(index) {
   var img1 = document.createElement('IMG');
