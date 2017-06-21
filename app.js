@@ -14,7 +14,6 @@ function Image(name, filepath) {
   this.filepath = filepath;
   this.shown = 0;
   this.clicked = 0;
-  this.percent = 0;
   allImages.push(this);
 }
 
