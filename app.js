@@ -138,7 +138,7 @@ function handleClick() {
         data: {
           labels: allProducts,
           datasets: [{
-            label: '% of Clicks out of How Many Times Shown',
+            label: '% of Clicks when Viewed',
             data: percentages,
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
