@@ -18,11 +18,9 @@ function Image(name, filepath) {
 }
 
 //object instances
-if(localStorage.data){
+if (localStorage.data) {
   allImages = JSON.parse(localStorage.data);
 } else {
-//   var allImages = [];
-
   var bag = new Image('bag', 'img/bag.jpg');
   var banana = new Image('banana', 'img/banana.jpg');
   var bathroom = new Image('bathroom', 'img/bathroom.jpg');
